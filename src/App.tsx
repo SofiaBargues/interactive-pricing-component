@@ -1,32 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import { useState } from "react";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
+import circles from "/pattern-circles.svg";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="bg-[#f1f5fe] h-[470px]  rounded-bl-[300px]  absolute w-full"></div>
+      <div className="min-h-screen w-full relative font-manrope flex justify-center  flex-col">
+        <div className="z-10 absolute m-[28px] h-screen flex justify-around flex-col ">
+          <div className="relative">
+            <img src={circles} alt="" className=" absolute " />
+            <h1 className="">Simple, traffic-based pricing</h1>
+            <p>Sign-up for our 30-day trial. No credit card required.</p>
+          </div>
+          <div>
+            100K PAGEVIEWS $16.00 / month c Monthly Billing Yearly Billing -25%
+            Unlimited websites 100% data ownership Email reports Start my trial
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
