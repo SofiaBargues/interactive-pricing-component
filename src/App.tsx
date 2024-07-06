@@ -5,8 +5,40 @@ import circles from "/pattern-circles.svg";
 import bgPattern from "/bg-pattern.svg";
 import check from "/icon-check.svg";
 import slider from "/icon-slider.svg";
+import { useState } from "react";
+import PricePeriod from "./components/PricePeriod";
+
+export const pricing = {
+  annually: "annually",
+  monthly: "monthly",
+};
+
+const pricingOptions = {
+  annually: {
+    price: 150.5,
+    text: "year",
+    description: "",
+  },
+  monthly: {
+    price: 16.1,
+    text: "month",
+    description: "",
+  },
+};
 
 function App() {
+  const [pricingSelected, setPricingSelected] = useState(
+    pricingOptions.annually
+  );
+
+  function handlePricing() {
+    if (pricingSelected.text === pricingOptions.annually.text) {
+      setPricingSelected(pricingOptions.monthly);
+    } else {
+      setPricingSelected(pricingOptions.annually);
+    }
+  }
+
   return (
     <div className="min-h-screen relative flex flex-col w-full font-manrope ">
       <div className="absolute">
@@ -49,15 +81,25 @@ function App() {
               <img src={slider} alt="" className="h-4 mt-[15px] ml-2" />
             </div>
 
-            <div className=" text-[#8187a2]">
-              <span className="text-4xl font-bold text-[#293557]">$16.00</span>/
-              month
-            </div>
+            <PricePeriod
+              price={pricingSelected.price}
+              period={pricingSelected.text}
+            />
+
             <div className=" text-[#8187a2]">
               <div className="flex justify-center gap-3 items-center flex-row text-[#8a8fa5] text-md">
                 <div className=""> Monthly Billing</div>
-                <button className="bg-[#d0d8ef] w-14 h-7 rounded-full relative ">
-                  <div className="left-[4px] bg-white transition-all duration-250 ease-in-out top-1 rounded-full w-5  h-5 absolute"></div>
+                <button
+                  onClick={handlePricing}
+                  className="bg-[#d0d8ef] w-14 h-7 rounded-full relative "
+                >
+                  <div
+                    className={`${
+                      pricingSelected.text === pricingOptions.annually.text
+                        ? "left-[4px] bg-white "
+                        : "left-[28px] bg-white "
+                    } " transition-all duration-250 ease-in-out top-1 rounded-full w-5  h-5 absolute`}
+                  ></div>
                 </button>
                 <div className="">Yearly Billing</div>
                 <button className="bg-[#feeee8] text-[#e9977e] text-xs font-extrabold rounded-2xl px-3 py-1">
@@ -66,21 +108,25 @@ function App() {
               </div>
             </div>
             <hr></hr>
+
             <ul className="flex flex-col gap-3 items-center text-md font-semibold text-[#9ca2b4]">
-              <div className="flex items-center">
+              <li className="flex items-center">
                 <img src={check} alt="" className="h-3 w-3 mx-4" />
-                <li>Unlimited websites</li>
-              </div>
-              <div className="flex items-center">
+                <span>Unlimited websites</span>
+              </li>
+
+              <li className="flex items-center">
                 <img src={check} alt="" className="h-3 w-3 mx-4" />
-                <li> 100% data ownership</li>
-              </div>
-              <div className="flex items-center">
+                <span> 100% data ownership</span>
+              </li>
+
+              <li className="flex items-center">
                 <img src={check} alt="" className="h-3 w-3 mx-4" />
-                <li>Email reports</li>
-              </div>
+                <span>Email reports</span>
+              </li>
             </ul>
           </div>
+
           <button className="bg-[#293356] mx-auto text-[#c7d4ff] p-3 font-semibold w-[200px] rounded-3xl">
             Start my trial
           </button>
