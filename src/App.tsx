@@ -27,6 +27,8 @@ const pricingOptions = {
 };
 
 function App() {
+  const [position, setPosition] = useState(10);
+
   const [pricingSelected, setPricingSelected] = useState(
     pricingOptions.annually
   );
@@ -38,7 +40,7 @@ function App() {
       setPricingSelected(pricingOptions.annually);
     }
   }
-
+  const positionUse = position.toFixed(0);
   return (
     <div className="min-h-screen relative flex flex-col w-full font-manrope ">
       <div className="absolute">
@@ -64,13 +66,13 @@ function App() {
         <div className="w-[386px] h-[563px] gap-7 bg-[#fbfcfe] shadow-md shadow-slate-200   rounded-lg flex flex-col text-center justify-center items-center ">
           <div className="flex flex-col gap-7">
             <div className="font-semibold text-[#8187a2]  tracking-widest">
-              100K PAGEVIEWS
+              {positionUse}K PAGEVIEWS
             </div>
 
-            <RangeInput />
+            <RangeInput position={position} setPosition={setPosition} />
 
             <PricePeriod
-              price={pricingSelected.price}
+              price={pricingSelected.price * (positionUse / 2)}
               period={pricingSelected.text}
             />
 

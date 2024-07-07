@@ -4,8 +4,13 @@ import slider from "/icon-slider.svg";
 
 /* <input type="range" className="w-full" value={} onChange={}></input> */
 
-export default function RangeInput() {
-  const [position, setPosition] = useState(10);
+export default function RangeInput({
+  position,
+  setPosition,
+}: {
+  position: number;
+  setPosition: (position: number) => void;
+}) {
   const percentage = position + "%";
   const myRef = useRef(null);
 
