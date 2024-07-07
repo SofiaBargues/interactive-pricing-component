@@ -4,9 +4,9 @@
 import circles from "/pattern-circles.svg";
 import bgPattern from "/bg-pattern.svg";
 import check from "/icon-check.svg";
-import slider from "/icon-slider.svg";
 import { useState } from "react";
 import PricePeriod from "./components/PricePeriod";
+import RangeInput from "./components/RangeInput";
 
 export const pricing = {
   annually: "annually",
@@ -66,20 +66,8 @@ function App() {
             <div className="font-semibold text-[#8187a2]  tracking-widest">
               100K PAGEVIEWS
             </div>
-            <div className=" relative w-full">
-              {/* absolute with left % */}
-              <div className="bg-[#ebf1fb] h-2 rounded-lg absolute w-full"></div>
-              <div
-                style={{ width: " 50%" }}
-                className="bg-[#a4f2ea] h-2 z-10 rounded-lg absolute left-0 "
-              ></div>
-            </div>
-            <div
-              style={{ left: "50%" }}
-              className="bg-[#11d8c5] shadow-xl z-20 shadow-[#a4f2ea] left-[50%] relative bottom-12 rounded-full w-[45px] h-[45px]"
-            >
-              <img src={slider} alt="" className="h-4 mt-[15px] ml-2" />
-            </div>
+
+            <RangeInput />
 
             <PricePeriod
               price={pricingSelected.price}
