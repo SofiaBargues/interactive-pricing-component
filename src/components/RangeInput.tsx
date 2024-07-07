@@ -12,25 +12,37 @@ export default function RangeInput() {
   console.log("render");
 
   const handleClick = (e) => {
-    // 1. Create a reatangle variable
-    console.log(myRef.current?.getBoundingClientRect());
-
+    // 1. Create a rectangle variable
+    // console.log(myRef.current?.getBoundingClientRect());
+    const sliderRectangle = myRef.current?.getBoundingClientRect();
+    console.log(myRef);
     // 2. if not rectangle, return
+    if (sliderRectangle) {
+      // 3. Get click X position
 
-    // 3. Get click X position
+      const clickPosX = (e as MouseEvent).clientX;
 
-    // 4. Get rectangle left and rectangle right
+      // 4. Get rectangle left and rectangle right
 
-    // 5. calculate click relative position percentage
-    // width = right - left
-    // positionPercentage = (click - left) / width * 100
-    // Print position percetnage
-    // 6. Update state
+      const rectangleLeft = sliderRectangle.left;
+      const rectangleRight = sliderRectangle.right;
+      // 5. calculate click relative position percentage
+      // width = right - left
+      const width = rectangleRight - rectangleLeft;
+      // positionPercentage = (click - left) / width * 100
+
+      const positionPercentage = ((clickPosX - rectangleLeft) / width) * 100;
+      // Print position percetnage
+      console.log(positionPercentage);
+      // 6. Update state
+      setPosition(positionPercentage);
+    }
   };
   return (
     <div>
-      <div ref={myRef} onClick={handleClick} className=" relative w-full">
+      <div ref={myRef} onClick={handleClick} className=" relative w-full h-2">
         {/* absolute with left % */}
+
         <div className="bg-[#ebf1fb] h-2 rounded-lg absolute w-full"></div>
         <div
           style={{ width: percentage }}
