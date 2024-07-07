@@ -46,14 +46,18 @@ export default function RangeInput() {
         <div className="bg-[#ebf1fb] h-2 rounded-lg absolute w-full"></div>
         <div
           style={{ width: percentage }}
-          className="bg-[#a4f2ea] h-2 z-10 rounded-lg absolute left-0 "
+          className="bg-[#a4f2ea] h-2 z-10 rounded-l-lg  absolute left-0 "
         ></div>
       </div>
       <div
         style={{ left: percentage }}
-        className="bg-[#11d8c5] shadow-xl z-20 shadow-[#a4f2ea] left-[50%] relative bottom-12 rounded-full w-[45px] h-[45px]"
+        className="bg-[#11d8c5] shadow-xl   z-40 shadow-[#a4f2ea] right-[20px] -m-1 relative bottom-11 rounded-full w-[45px] h-[45px]"
       >
-        <img src={slider} alt="" className="h-4 mt-[15px] ml-2" />
+        <img
+          src={slider}
+          alt=""
+          className="h-4 mt-[19px] ml-2 relative top-[14px]"
+        />
       </div>
     </div>
   );
