@@ -85,7 +85,7 @@ function App() {
                 >
                   <div
                     className={`${
-                      pricingSelected.text === pricingOptions.annually.text
+                      pricingSelected.text === pricingOptions.monthly.text
                         ? "left-[4px] bg-white "
                         : "left-[28px] bg-white "
                     } " transition-all duration-250 ease-in-out top-1 rounded-full w-5  h-5 absolute`}

@@ -38,9 +38,9 @@ export default function RangeInput({
 
       const positionPercentage = ((clickPosX - rectangleLeft) / width) * 100;
       // Print position percetnage
-      console.log(positionPercentage);
+      console.log(Math.round(positionPercentage / 10) * 10);
       // 6. Update state
-      setPosition(positionPercentage);
+      setPosition(Math.round(positionPercentage / 10) * 10);
     }
   };
   return (
