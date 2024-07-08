@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useRef } from "react";
 import slider from "/icon-slider.svg";
 
@@ -55,7 +54,7 @@ export default function RangeInput({
         ></div>
         <div
           style={{ left: percentage }}
-          className="bg-[#11d8c5] shadow-xl z-40 shadow-[#a4f2ea] right-[20px] -translate-x-1/2 -translate-y-1/2 relative top-1 rounded-full w-[45px] h-[45px]"
+          className="bg-[#11d8c5]  hover:bg-[#7ce9dc] shadow-xl z-40 shadow-[#a4f2ea] right-[20px] -translate-x-1/2 -translate-y-1/2 relative top-1 rounded-full w-[45px] h-[45px]"
         >
           <img
             src={slider}
