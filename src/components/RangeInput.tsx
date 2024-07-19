@@ -11,11 +11,11 @@ export default function RangeInput({
   setPosition: (position: number) => void;
 }) {
   const percentage = position + "%";
-  const myRef = useRef(null);
+  const myRef = useRef<null | HTMLDivElement>(null);
 
   console.log("render");
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     // 1. Create a rectangle variable
     // console.log(myRef.current?.getBoundingClientRect());
     const sliderRectangle = myRef.current?.getBoundingClientRect();
@@ -24,7 +24,7 @@ export default function RangeInput({
     if (sliderRectangle) {
       // 3. Get click X position
 
-      const clickPosX = (e as MouseEvent).clientX;
+      const clickPosX = e.clientX;
 
       // 4. Get rectangle left and rectangle right
 

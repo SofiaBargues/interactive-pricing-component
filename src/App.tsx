@@ -66,10 +66,10 @@ function App() {
           <div className="flex flex-col w-full">
             <div className="flex flex-col w-full gap-7 p-10">
               <div className="font-semibold  text-[#8187a2] flex md:flex-row justify-center tracking-widest md:items-center md:justify-between">
-                {positionUse}K PAGEVIEWS
+                {positionUse} PAGEVIEWS
                 <PricePeriod
                   className=" hidden md:block"
-                  price={pricingSelected.price * (positionUse / 2)}
+                  price={pricingSelected.price * (Number(positionUse) / 2)}
                   period={pricingSelected.text}
                 />
               </div>
@@ -78,7 +78,7 @@ function App() {
 
               <PricePeriod
                 className=" md:hidden  "
-                price={pricingSelected.price * (positionUse / 2)}
+                price={pricingSelected.price * (Number(positionUse) / 2)}
                 period={pricingSelected.text}
               />
 
